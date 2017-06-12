@@ -23,20 +23,34 @@ void NumberList::appendNode(double num)
 	// else insert newNode at the end of the list
 	else
 	{
-		std::cout << "Travering List" << std::endl;;
 		// Initialise nodeptr to head of list
 		nodePtr = head;
 	     	
-			std::cout << "Node Value: " << nodePtr->value << "." << std::endl;
 		// Find the last node in the list
 		while(nodePtr->next)
 		{
 			nodePtr = nodePtr->next;
-			std::cout << "Node Value: " << nodePtr->value << "." << std::endl;
 		}
 
 		// Insert newNode as the last node
 		nodePtr->next = newNode;
-		std::cout << "Node Value: " << newNode->value << "." << std::endl;
+	}
+}
+
+void NumberList::displayList() const
+{
+	ListNode* nodePtr;	// To move through list
+
+	// Position nodePtr at the head of the list.
+	nodePtr = head;
+
+	// While nodePtr points to a node, traverse the list
+	while (nodePtr)
+	{
+		// Display the value in this node.
+		std::cout << nodePtr->value << std::endl;
+	
+		// Move to the next node.
+		nodePtr = nodePtr->next;
 	}
 }
