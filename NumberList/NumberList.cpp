@@ -3,6 +3,25 @@
 
 NumberList::~NumberList()
 {
+	ListNode* nodePtr = nullptr;	// To traverse the list
+	ListNode* nextNode = nullptr;	// To point to the next node
+
+	// Position nodePtr at the head of the list.
+	nodePtr = head;
+
+	// While nodePtr is not at the end of the list...
+	while (nodePtr != nullptr)
+	{
+		// Save a pointer to the next node
+		nextNode = nodePtr->next;
+		
+		// Delete the current node
+		delete nodePtr;
+
+		// Position nodePtr at the next node.
+		nodePtr = nextNode;		 
+	}
+
 }
 
 void NumberList::appendNode(double num)
